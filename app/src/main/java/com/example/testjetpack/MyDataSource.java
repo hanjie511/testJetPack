@@ -2,6 +2,13 @@ package com.example.testjetpack;
 
 import android.app.Application;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.paging.ItemKeyedDataSource;
 import androidx.paging.PageKeyedDataSource;
@@ -11,22 +18,23 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class MyDataSource extends PageKeyedDataSource<String,Road>{
+public class MyDataSource extends PageKeyedDataSource<Integer,Road>{
     int pageNum=1;
+    List<Road> list=new ArrayList<>();
     @Override
-    public void loadInitial(@NonNull LoadInitialParams<String> params, @NonNull LoadInitialCallback<String, Road> callback) {
+    public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, Road> callback) {
         pageNum=1;
         getData(pageNum);
 
     }
 
     @Override
-    public void loadBefore(@NonNull LoadParams<String> params, @NonNull LoadCallback<String, Road> callback) {
+    public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Road> callback) {
 
     }
 
     @Override
-    public void loadAfter(@NonNull LoadParams<String> params, @NonNull LoadCallback<String, Road> callback) {
+    public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Road> callback) {
 
     }
     private void getData(int pageNum){
@@ -46,8 +54,19 @@ public class MyDataSource extends PageKeyedDataSource<String,Road>{
             }
         });
     }
-    private void paresData(String response){
+
+    private void paresData(String response) {
+        try{
+            list.clear();
+            Road road=null;
+            JSONObject ob=new JSONObject(response);
+            JSONArray array=new JSONArray(ob.get("data"));
+            for(int index=0;index<array.length();index++){
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
-
 }

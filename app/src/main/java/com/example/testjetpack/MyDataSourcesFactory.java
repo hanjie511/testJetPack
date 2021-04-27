@@ -6,12 +6,12 @@ import androidx.paging.DataSource;
 
 import java.util.List;
 
-public class MyDataSourcesFactory extends DataSource.Factory<String,Road> {
+public class MyDataSourcesFactory extends DataSource.Factory<Integer,Road> {
 
 
     @NonNull
     @Override
-    public DataSource<String, Road> create() {
+    public DataSource<Integer, Road> create() {
         MyDataSource myDataSource=new MyDataSource();
         return myDataSource;
     }
