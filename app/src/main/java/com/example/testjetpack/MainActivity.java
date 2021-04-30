@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.paging.PagedList;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mainActivityViewModel=new ViewModelProvider(this).get(MainActivityViewModel.class);
         activityMainBinding=ActivityMainBinding.inflate(getLayoutInflater());
+        MyPagingAdapter myPagingAdapter;
         View view=activityMainBinding.getRoot();
         setContentView(view);
+        myPagingAdapter=new MyPagingAdapter();
+        mainActivityViewModel.initData();
         activityMainBinding.userNameEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -45,5 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 activityMainBinding.currentName.setText(s);
             }
         });
+        mainActivityViewModel.getRoadLiveData().observe(this, new Observer<PagedList<Road>>() {
+            @Override
+            public void onChanged(PagedList<Road> roads) {
+                myPagingAdapter.submitList(roads);
+            }
+        });
+        activityMainBinding.recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        activityMainBinding.recyclerView.setAdapter(myPagingAdapter);
     }
 }

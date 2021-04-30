@@ -7,6 +7,6 @@ import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("queryTestDevice.html")
-    Call<ResponseBody> getData(@Query("pageNum") int pageNum);
+    Call<Translation> getData(@Query("pageNum") int pageNum);
 
 }
