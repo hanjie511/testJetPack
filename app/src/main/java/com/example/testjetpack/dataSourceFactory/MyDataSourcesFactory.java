@@ -1,12 +1,12 @@
-package com.example.testjetpack;
+package com.example.testjetpack.dataSourceFactory;
 
 import androidx.annotation.NonNull;
-import androidx.arch.core.util.Function;
 import androidx.paging.DataSource;
 
-import java.util.List;
+import com.example.testjetpack.dataSource.MyDataSource;
+import com.example.testjetpack.model.Road;
 
-public class MyDataSourcesFactory extends DataSource.Factory<Integer,Road> {
+public class MyDataSourcesFactory extends DataSource.Factory<Integer, Road> {
 
 
     @NonNull

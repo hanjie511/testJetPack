@@ -1,15 +1,18 @@
-package com.example.testjetpack;
+package com.example.testjetpack.viewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
+import com.example.testjetpack.dataSource.MyDataSource;
+import com.example.testjetpack.dataSourceFactory.MyDataSourcesFactory;
+import com.example.testjetpack.model.Road;
+
 public class MainActivityViewModel extends ViewModel {
-    MutableLiveData<String> userName;
-    MyDataSource myDataSource;
+    public MutableLiveData<String> userName;
+    public MyDataSource myDataSource;
     public LiveData<PagedList<Road>> getRoadLiveData() {
         return roadLiveData;
     }

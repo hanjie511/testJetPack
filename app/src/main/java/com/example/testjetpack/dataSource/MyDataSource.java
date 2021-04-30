@@ -1,17 +1,17 @@
-package com.example.testjetpack;
+package com.example.testjetpack.dataSource;
 
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListResourceBundle;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.paging.PageKeyedDataSource;
+
+import com.example.testjetpack.model.Road;
+import com.example.testjetpack.model.Translation;
+import com.example.testjetpack.service.ApiService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,7 +20,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MyDataSource extends PageKeyedDataSource<Integer,Road>{
+public class MyDataSource extends PageKeyedDataSource<Integer, Road>{
     int pageNum=1;
     int number=0;
     @Override

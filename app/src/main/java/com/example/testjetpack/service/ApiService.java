@@ -1,6 +1,7 @@
-package com.example.testjetpack;
+package com.example.testjetpack.service;
 
-import okhttp3.ResponseBody;
+import com.example.testjetpack.model.Translation;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

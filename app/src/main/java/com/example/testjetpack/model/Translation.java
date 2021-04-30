@@ -1,4 +1,4 @@
-package com.example.testjetpack;
+package com.example.testjetpack.model;
 
 import org.json.JSONArray;
 

@@ -1,9 +1,8 @@
-package com.example.testjetpack;
+package com.example.testjetpack.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -11,9 +10,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Toast;
 
+import com.example.testjetpack.adapter.MyPagingAdapter;
 import com.example.testjetpack.databinding.ActivityMainBinding;
+import com.example.testjetpack.model.Road;
+import com.example.testjetpack.viewModel.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding activityMainBinding;

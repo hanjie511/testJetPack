@@ -1,4 +1,4 @@
-package com.example.testjetpack;
+package com.example.testjetpack.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +10,11 @@ import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.testjetpack.R;
+import com.example.testjetpack.model.Road;
+
 public class MyPagingAdapter extends PagedListAdapter<Road,MyPagingAdapter.VH> {
-    protected MyPagingAdapter() {
+    public MyPagingAdapter() {
         super(diffCallBack);
     }
 
